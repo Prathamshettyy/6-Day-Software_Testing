@@ -1,0 +1,7 @@
+[submodule "Day-5/day5(i)/cars-api"]
+	path = Day-5/day5(i)/cars-api
+	url = https://github.com/Prathamshettyy/cars-api
+[submodule "Day-6/pytest/selenium-beginners"]
+	path = Day-6/pytest/selenium-beginners
+	url = https://github.com/Prathamshettyy/selenium-beginners
+
