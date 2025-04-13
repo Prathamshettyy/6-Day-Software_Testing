@@ -1,0 +1,137 @@
+🚗 Postman API Testing — Cars API
+
+We explored how to interact with a public API using Postman by performing GET and POST requests and verifying the response using test scripts.
+
+🔗 Step 1: Repository Provided
+We were provided this API to experiment with:
+📁 Repo Link: https://github.com/qxf2/cars-api
+
+
+🔍 Step 2: Initial GET Request 
+Endpoint:
+GET https://cars-app.qxf2.com/cars
+
+✅ This was used just to view the current list of cars.
+
+📤 Response Output:
+
+{
+  "cars_list": [
+    {
+      "brand": "Maruti",
+      "car_type": "hatchback",
+      "name": "Swift",
+      "price_range": "3-5 lacs"
+    },
+    {
+      "brand": "Hyundai",
+      "car_type": "hatchback",
+      "name": "Creta",
+      "price_range": "8-14 lacs"
+    },
+    {
+      "brand": "Honda",
+      "car_type": "sedan",
+      "name": "City",
+      "price_range": "3-6 lacs"
+    },
+    {
+      "brand": "Volkswagen",
+      "car_type": "sedan",
+      "name": "Vento",
+      "price_range": "7-10 lacs"
+    }
+  ],
+  "successful": true
+}
+
+
+➕ Step 3: POST Request to Add a New Car (Omni)
+Endpoint:
+POST https://cars-app.qxf2.com/cars/add
+
+{
+  "brand": "Maruti",
+  "car_type": "van",
+  "name": "Omni",
+  "price_range": "2-4 lacs"
+}
+✅ This request was used to add a new car (Maruti Omni) to the system.
+
+📤 Response Output:
+
+{
+  "cars_list": [
+    {
+      "brand": "Maruti",
+      "car_type": "hatchback",
+      "name": "Swift",
+      "price_range": "3-5 lacs"
+    },
+    {
+      "brand": "Hyundai",
+      "car_type": "hatchback",
+      "name": "Creta",
+      "price_range": "8-14 lacs"
+    },
+    {
+      "brand": "Honda",
+      "car_type": "sedan",
+      "name": "City",
+      "price_range": "3-6 lacs"
+    },
+    {
+      "brand": "Volkswagen",
+      "car_type": "sedan",
+      "name": "Vento",
+      "price_range": "7-10 lacs"
+    },
+    {
+      "brand": "Maruti",
+      "car_type": "van",
+      "name": "Omni",
+      "price_range": "2-4 lacs"
+    }
+  ],
+  "successful": true
+}
+
+
+🔁 Step 4: Final GET Request with Test Scripts
+Endpoint:
+GET https://cars-app.qxf2.com/cars
+
+This time, we added test scripts in the “Tests” tab of Postman to validate the response.
+
+🧪 Test Scripts Used:
+
+// Check if status code is 200
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+// Check if response body contains the word "Omni"
+pm.test("Response body contains 'Omni'", function () {
+    pm.expect(pm.response.text()).to.include("Omni");
+});
+
+🧪 Purpose of Tests:
+
+✅ Ensure that the API responded successfully (status 200)
+
+✅ Confirm that the car we added (Omni) is present in the response
+
+
+
+✅ Summary:
+🔹 Step 1: Repo link provided.
+
+🔹 Step 2: Performed an initial GET (no script), saw existing cars.
+
+🔹 Step 3: Used POST to add Maruti Omni.
+
+🔹 Step 4: Used GET again, this time with test scripts:
+
+Checked for status code 200
+
+Verified that "Omni" was present in the response.
